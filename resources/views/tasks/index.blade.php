@@ -1,6 +1,20 @@
 @extends('layouts.app')
 
 @section('content')
+<div>
+    @if (session('success'))
+        <div id="success-message" class="bg-green-500 text-white p-3 rounded mb-4">
+            {{ session('success') }}
+        </div>
+    @endif
+
+        {{-- <script>
+            setTimeout(function() {
+                document.getElementById('success-message').style.display = 'none';
+            }, 2000); // 2 seconds
+        </script> --}}
+
+</div>
 <div class="bg-white p-6 rounded-lg shadow-md">
     <h1 class="text-2xl font-bold mb-4">Task Manager</h1>
     <a href="{{ route('tasks.create') }}" class="bg-blue-500 text-white px-4 py-2 rounded">Create Task</a>
@@ -35,4 +49,7 @@
         </tbody>
     </table>
 </div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="{{ asset('storage/js/myjs.js') }}"></script>
+
 @endsection
